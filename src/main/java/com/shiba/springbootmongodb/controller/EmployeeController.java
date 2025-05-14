@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Slf4j(topic = "EMPLOYEE-CONTROLLER")
 @RestController
@@ -37,4 +39,14 @@ public class EmployeeController {
         log.info("Updating employee with id: {}", employeeId);
         return StandardResponse.build(employeeService.updateEmployee(employeeId, newEmployee), "Update employee successfully");
     }
+
+    @GetMapping("/between-age")
+    public StandardResponse<List<Employee>> getEmployeesBetweenAge(@RequestParam int minAge, @RequestParam int maxAge) {
+        log.info("Getting employees between age: {} and {}", minAge, maxAge);
+        return StandardResponse.build(employeeService.getEmployeesBetweenAge(minAge, maxAge), "Get employees successfully");
+    }
+
+
+
+
 }

@@ -7,7 +7,12 @@ import com.shiba.springbootmongodb.validator.EmployeeValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -44,5 +49,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeValidator.checkEmployeeToUpdate(currentEmployee, newEmployee);
 
         return mongoTemplate.save(newEmployee);
+    }
+
+    @Override
+    public List<Employee> getEmployeesBetweenAge(int minAge, int maxAge) {
+        Query query = new Query();
+        Criteria criteria = Criteria.where("age").gte(minAge).lte(maxAge);
+        query.addCriteria(criteria);
+        return mongoTemplate.find(query, Employee.class);
     }
 }

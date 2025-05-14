@@ -103,6 +103,7 @@ public class PersonServiceImpl implements PersonService {
                 .andExpression("_id").as("city")
                 .andExpression("population").as("population")
                 .andExclude("_id");
+
         Aggregation aggregation = Aggregation.newAggregation(unwindOperation, groupOperation, sortOperation, projectionOperation);
 
         return mongoTemplate.aggregate(aggregation, Person.class, Document.class).getMappedResults();
