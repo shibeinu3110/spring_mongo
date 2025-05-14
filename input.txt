@@ -1,0 +1,62 @@
+input to create
+{
+    "employeeId": "EMP123456",
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 32,
+    "postcode": "10003",
+    "contact": {
+      "email": "john.doe2@example.com",
+      "phone": "+1-202-555-0175",
+      "facebookUrl": "https://facebook.com/john.doe",
+      "linkedIn": "https://www.linkedin.com/in/johndoe"
+    },
+    "addressList": [
+      {
+        "street": "123 Main St",
+        "subDistrict": "Manhattan",
+        "district": "Midtown",
+        "city": "New York"
+      },
+      {
+        "street": "456 Elm St",
+        "subDistrict": "Brooklyn Heights",
+        "district": "Brooklyn",
+        "city": "New York"
+      }
+    ]
+  }
+
+
+
+update
+
+{
+    "employeeId": "EMP123456",
+    "firstName": "John update",
+    "lastName": "Doe",
+    "age": 32,
+    "postcode": "10003",
+    "contact": {
+      "email": "john.doe2@example.com",
+      "phone": "+1-202-555-0175",
+      "facebookUrl": "https://facebook.com/john.doe",
+      "linkedIn": "https://www.linkedin.com/in/johndoe"
+    },
+    "addressList": [
+      {
+        "street": "123 Main St",
+        "subDistrict": "Manhattan",
+        "district": "Midtown",
+        "city": "New York"
+      },
+      {
+        "street": "456 Elm St",
+        "subDistrict": "Brooklyn Heights",
+        "district": "Brooklyn",
+        "city": "New York"
+      }
+    ]
+  }
+
+
