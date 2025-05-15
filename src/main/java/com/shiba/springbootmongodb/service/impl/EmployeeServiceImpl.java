@@ -86,14 +86,6 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .andExclude("_id");
 
         Aggregation aggregation = Aggregation.newAggregation(unwindOperation, groupOperation, groupCityOperation, projectionOperation);
-        List<Document> employees = mongoTemplate.aggregate(aggregation, Employee.class, Document.class).getMappedResults();
-        List<CityPopulationDTO> cityPopulationDTOList = new ArrayList<>();
-        for(Document document : employees) {
-            CityPopulationDTO cityPopulationDTO = new CityPopulationDTO();
-            cityPopulationDTO.setCity(document.getString("city"));
-            cityPopulationDTO.setPopulation(document.getInteger("population"));
-            cityPopulationDTOList.add(cityPopulationDTO);
-        }
-        return cityPopulationDTOList;
+        return mongoTemplate.aggregate(aggregation, Employee.class, CityPopulationDTO.class).getMappedResults();
     }
 }
