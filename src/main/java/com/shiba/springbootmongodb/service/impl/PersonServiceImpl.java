@@ -82,6 +82,7 @@ public class PersonServiceImpl implements PersonService {
         log.info("Getting oldest person by city");
 
         UnwindOperation unwindOperation = Aggregation.unwind("addresses");
+
         SortOperation sortOperation = Aggregation.sort(Sort.Direction.DESC, "age");
         GroupOperation groupOperation = Aggregation.group("addresses.city")
                 .first(Aggregation.ROOT)

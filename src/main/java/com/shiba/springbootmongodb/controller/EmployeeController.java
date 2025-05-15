@@ -2,6 +2,7 @@ package com.shiba.springbootmongodb.controller;
 
 import com.shiba.springbootmongodb.collection.Employee;
 import com.shiba.springbootmongodb.common.StandardResponse;
+import com.shiba.springbootmongodb.dto.CityPopulationDTO;
 import com.shiba.springbootmongodb.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,6 +47,11 @@ public class EmployeeController {
         return StandardResponse.build(employeeService.getEmployeesBetweenAge(minAge, maxAge), "Get employees successfully");
     }
 
+    @GetMapping("/city-population")
+    public StandardResponse<List<CityPopulationDTO>> getEmployeesByCityPopulation() {
+        log.info("Each city and its population");
+        return StandardResponse.build(employeeService.getCityPopulation(), "Get city and population successfully");
+    }
 
 
 

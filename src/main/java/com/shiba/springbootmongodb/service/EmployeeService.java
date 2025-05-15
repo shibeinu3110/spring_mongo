@@ -1,6 +1,7 @@
 package com.shiba.springbootmongodb.service;
 
 import com.shiba.springbootmongodb.collection.Employee;
+import com.shiba.springbootmongodb.dto.CityPopulationDTO;
 
 import java.util.List;
 
@@ -11,4 +12,5 @@ public interface EmployeeService {
     Employee getEmployeeById(String employeeId);
     Employee updateEmployee(String employeeId, Employee newEmployee);
     List<Employee> getEmployeesBetweenAge(int minAge, int maxAge);
+    List<CityPopulationDTO> getCityPopulation();
 }
