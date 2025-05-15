@@ -79,7 +79,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         //we need to group by city only
         GroupOperation groupCityOperation = Aggregation.group("_id.city")
                 .count().as("population");
-
         ProjectionOperation projectionOperation = Aggregation.project()
                 .and("_id").as("city")
                 .and("population").as("population")
